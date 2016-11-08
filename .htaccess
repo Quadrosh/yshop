@@ -1,11 +1,21 @@
- Options +FollowSymLinks
- IndexIgnore */*
- RewriteEngine on
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
 
+
+
+ # RewriteCond %{REQUEST_URI} ^/(web)
+ RewriteRule ^images/(.*)$ web/images/$1 [L]
+ # RewriteRule ^js/(.*)$ web/js/$1 [L]
+ # RewriteRule ^css/(.*)$ web/css/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.*)$  web/index.php/$1 [L]
+ RewriteRule ^(.*)$  web/index.php/$1 [L,QSA]
+
+# RewriteRule ^(.*)$  web/$1 [L]
 
 
 

@@ -6,9 +6,10 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru-RU',
+    'defaultRoute' => 'category/index',
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'A72tM_pfZUUCK7kPijuEgxyK3247JH2C',
             //'baseUrl' => '',
         ],
@@ -42,11 +43,19 @@ $config = [
         
         'urlManager' => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
+           'showScriptName' => false,
             'baseUrl' => '/yshop/',
             'rules' => [
+               // '' => 'category/index',
+               // 'home' => 'site/index',
+                'home' => 'category/index',
+                'category/<id:\d+>' => 'category/view',
             ],
         ],
+     //  'assetManager' => [
+        //'basePath' => __DIR__ .'/../',
+        // 'baseUrl' => __DIR__ .'/../web',
+      // ],  
         
     ],
     'params' => $params,

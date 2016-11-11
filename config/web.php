@@ -49,7 +49,9 @@ $config = [
                // '' => 'category/index',
                // 'home' => 'site/index',
                 'home' => 'category/index',
+                'category/<id:\d+>/<page:\d+>' => 'category/view',
                 'category/<id:\d+>' => 'category/view',
+                'product/<id:\d+>' => 'product/view',
             ],
         ],
      //  'assetManager' => [

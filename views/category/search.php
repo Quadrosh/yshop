@@ -64,7 +64,7 @@ use yii\helpers\Html;
                                             <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name]) ?>
                                             <h2>$<?= $product->price; ?></h2>
                                             <p><a href="<?= \yii\helpers\Url::to(['product/view','id'=> $product->id])?>"><?= $product->name; ?></a></p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в корзину</a>
+                                            <a href="#" data-id="<?= $product->id ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Добавить в корзину</a>
                                         </div>
 
                                         <?php if ($product->new): ?>

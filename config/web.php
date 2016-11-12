@@ -11,7 +11,7 @@ $config = [
     'components' => [
         'request' => [
             'cookieValidationKey' => 'A72tM_pfZUUCK7kPijuEgxyK3247JH2C',
-            //'baseUrl' => '',
+//            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -55,10 +55,10 @@ $config = [
                 'search' => 'category/search',
             ],
         ],
-     //  'assetManager' => [
-        //'basePath' => __DIR__ .'/../',
-        // 'baseUrl' => __DIR__ .'/../web',
-      // ],  
+//       'assetManager' => [
+//        'basePath' => __DIR__ .'/../',
+//         'baseUrl' => __DIR__ .'web',
+//       ],
         
     ],
     'params' => $params,

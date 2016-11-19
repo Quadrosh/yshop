@@ -4,6 +4,18 @@ use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 ?>
 <div class="container">
+    <?php if (Yii::$app->session->hasFlash('success')) : ?>
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" arial-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('success');?>
+        </div>
+    <?php endif; ?>
+    <?php if (Yii::$app->session->hasFlash('error')) : ?>
+        <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" arial-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo Yii::$app->session->getFlash('error');?>
+        </div>
+    <?php endif; ?>
     <?php if (!empty($session['cart'])) : ?>
         <div class="table-responsive table-hover table-striped">
             <table class="table">
@@ -20,7 +32,7 @@ use yii\widgets\ActiveForm;
                 <tbody>
                 <?php foreach ($session['cart'] as $id => $item) : ?>
                     <tr>
-                        <td><?= \yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt'=>$item['name'], 'height'=>50])  ?></td>
+                        <td><?= \yii\helpers\Html::img($item['img'], ['alt'=>$item['name'], 'height'=>50])  ?></td>
                         <td><a href="<?= Url::to(['product/view', 'id'=>$id]) ?>"><?=  $item['name'] ?></a></td>
                         <td><?=  $item['qty'] ?></td>
                         <td><?=  $item['price'] ?></td>
@@ -29,11 +41,11 @@ use yii\widgets\ActiveForm;
                     </tr>
                 <?php endforeach; ?>
                 <tr>
-                    <td colspan="4">Итого</td>
+                    <td colspan="5">Итого</td>
                     <td><?=  $session['cart.qty'] ?></td>
                 </tr>
                 <tr>
-                    <td colspan="4">На сумму</td>
+                    <td colspan="5">На сумму</td>
                     <td><?=  $session['cart.sum'] ?></td>
                 </tr>
                 </tbody>
